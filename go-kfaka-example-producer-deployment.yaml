@@ -17,6 +17,6 @@ spec:
       containers:
       - name: go-kfaka-example-producer
         image: hhollenstain/go-kfaka-example:latest
-        command: ./cmd/producer/main
+        command: ./cmd/producer/main --brokerList=bootstrap
         ports:
         - containerPort: 8080
