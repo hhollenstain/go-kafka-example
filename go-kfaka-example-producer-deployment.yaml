@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: go-kfaka-example-producer
+  labels:
+    app: go-kfaka-example-producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-kfaka-example-producer
+  template:
+    metadata:
+      labels:
+        app: go-kfaka-example-producer
+    spec:
+      containers:
+      - name: go-kfaka-example-producer
+        image: hhollenstain/go-kfaka-example:latest
+        command: ./cmd/producer/main
+        ports:
+        - containerPort: 8080
